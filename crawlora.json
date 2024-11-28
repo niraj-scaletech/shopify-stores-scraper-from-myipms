@@ -13,6 +13,8 @@
     "banner_file": "./assets/banner.png",
     "title": "Shopify stores scraper from myip.ms",
     "short_description": "Scrapes data from Shopify stores to gather information.",
+    "version": "1.0.0",
     "documentation_file": "./documentation.md",
-    "input_file": "./input.json"
+    "input_file": "./input.json",
+    "app_id": "fc412370-a5b7-45ee-99dc-c2c894470e84"
 }
