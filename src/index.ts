@@ -6,7 +6,13 @@ import { logger } from "./utils";
 
 const logging = logger("scrapper");
 
-export default async function scrapeRecords(fromPage: number, toPage: number) {
+export default async function scrapeRecords(
+  fromPage: string | number,
+  toPage: string | number
+) {
+  fromPage = parseInt(fromPage as string, 10);
+  toPage = parseInt(toPage as string, 10);
+
   if (isNaN(fromPage) || isNaN(toPage) || fromPage <= 0 || toPage < fromPage) {
     throw new Error(
       "Invalid page range. Ensure 'fromPage' <= 'toPage' and both are positive integers."
