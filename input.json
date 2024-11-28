@@ -1,12 +1,22 @@
-[
+  [
     {
-        "type": "textarea",
-        "datatype": "string",
-        "placeholder": "Enter search keywords per line",
-        "default": "crawlora",
-        "label": "Google searchs",
-        "regex": "/^.*$/",
-        "required": true,
-        "name": "searches"
-      }
-]
+      "type": "input",
+      "datatype": "number",
+      "placeholder": "Enter the starting page number",
+      "default": 1,
+      "label": "From Page",
+      "regex": "/^\\d+$/",
+      "required": true,
+      "name": "fromPage"
+    },
+    {
+      "type": "input",
+      "datatype": "number",
+      "placeholder": "Enter the ending page number",
+      "default": 10,
+      "label": "To Page",
+      "regex": "/^\\d+$/",
+      "required": true,
+      "name": "toPage"
+    }
+  ]

@@ -1,3 +1,3 @@
-import GetGoogleLinks from "./index";
+import scrapShopifyStores from "./index";
 
-GetGoogleLinks({ searches: `crawlora\nscaletech` });
+scrapShopifyStores(1,10);
