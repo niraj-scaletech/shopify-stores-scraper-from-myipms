@@ -10,16 +10,16 @@ export default async function scrapeRecords(
   fromPage: string | number,
   toPage: string | number
 ) {
-  fromPage = parseInt(fromPage as string, 10);
-  toPage = parseInt(toPage as string, 10);
+  const from = parseInt(fromPage as string, 10);
+  const to = parseInt(toPage as string, 10);
 
-  if (isNaN(fromPage) || isNaN(toPage) || fromPage <= 0 || toPage < fromPage) {
+  if (isNaN(from) || isNaN(to) || from <= 0 || to < from) {
     throw new Error(
       "Invalid page range. Ensure 'fromPage' <= 'toPage' and both are positive integers."
     );
   }
 
-  const urls = await generatePaginationUrls(fromPage, toPage);
+  const urls = await generatePaginationUrls(from, to);
 
   await windows(urls, async (url, { page, wait, output, debug }) => {
     await page.goto(url, { waitUntil: "networkidle2", timeout: 60000 });
