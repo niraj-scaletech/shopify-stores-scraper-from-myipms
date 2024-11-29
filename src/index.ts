@@ -6,21 +6,18 @@ import { logger } from "./utils";
 
 const logging = logger("scrapper");
 
-export default async function scrapeRecords(fromPage: string, toPage: string) {
-  const from = parseInt(fromPage, 10);
-  const to = parseInt(toPage, 10);
-
-  if (typeof from !== "number" || typeof to !== "number") {
+export default async function scrapeRecords(fromPage: number, toPage: number) {
+  if (typeof fromPage !== "number" || typeof toPage !== "number") {
     throw new Error("please enter numbers");
   }
 
-  if (from <= 0 || to < from) {
+  if (fromPage <= 0 || toPage < fromPage) {
     throw new Error(
       "Invalid page range. Ensure 'fromPage' <= 'toPage' and both are positive integers."
     );
   }
 
-  const urls = await generatePaginationUrls(from, to);
+  const urls = await generatePaginationUrls(fromPage, toPage);
 
   await windows(urls, async (url, { page, wait, output, debug }) => {
     await page.goto(url, { waitUntil: "networkidle2", timeout: 60000 });
