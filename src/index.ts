@@ -7,6 +7,9 @@ import { logger } from "./utils";
 const logging = logger("scrapper");
 
 export default async function scrapeRecords(fromPage: number, toPage: number) {
+  fromPage = Number(fromPage);
+  toPage = Number(toPage);
+
   if (typeof fromPage !== "number" || typeof toPage !== "number") {
     throw new Error("please enter numbers");
   }
